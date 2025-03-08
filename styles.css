@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9c5d1; /* Розовый фон для общего фона */
+}
+
+/* Начальный экран */
+.start-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f9c5d1, #ff8cba);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Фон с анимацией */
+.start-screen::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+    animation: backgroundAnimation 6s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Кнопка */
+.start-button {
+    padding: 20px 40px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #e91e63;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #d81b60;
+    transform: scale(1.1);
+}
+
+/* Анимация для кнопки */
+.start-button {
+    position: relative;
+    animation: buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: #f50057;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #e91e63;
+    }
+}
+
+/* Разделение экрана */
+.split-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 10;
+}
+
+.left-part, .right-part {
+    width: 50%;
+    height: 100%;
+    background-color: #f9c5d1;
+    transition: transform 1s ease;
+}
+
+.left-part {
+    transform: translateX(0);
+}
+
+.right-part {
+    transform: translateX(0);
+}
+
+.split-screen.active .left-part {
+    transform: translateX(-100%);
+}
+
+.split-screen.active .right-part {
+    transform: translateX(100%);
+}
+
+/* Открытка */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    text-align: center;
+    background-color: transparent;
+    padding: 30px;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card.visible {
+    opacity: 1;
+}
+
+/* Поздравление */
+.congratulations {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Праздничный шрифт для текста на втором слайде */
+h1, p {
+    font-family: 'Sacramento', cursive; /* Праздничный шрифт */
+    color: #e91e63;
+}
+
+/* Анимация появления текста */
+.fade-in-text {
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Сердечки */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 15;
+}
+
+.heart {
+    position: absolute;
+    color: #e91e63;
+    font-size: 24px;
+    animation: float 5s infinite ease-in;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Падающие элементы на первом слайде */
+.falling-elements-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.falling-element {
+    position: absolute;
+    font-size: 40px;
+    color: #fff;
+    animation: fall 5s infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}

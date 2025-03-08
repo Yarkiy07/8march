@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 Марта, мама!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"> <!-- Праздничный шрифт -->
+</head>
+<body>
+    <div class="start-screen">
+        <button class="start-button" onclick="startAnimation()">Нажми на меня</button>
+    </div>
+
+    <div class="split-screen hidden">
+        <div class="left-part"></div>
+        <div class="right-part"></div>
+    </div>
+
+    <div class="card hidden">
+        <div class="congratulations">
+            <h1 class="fade-in-text">С 8 Марта, мама!</h1>
+            <p class="fade-in-text">Ты — самая добрая, заботливая и прекрасная! ❤️</p>
+        </div>
+    </div>
+
+    <div class="hearts-container hidden"></div>
+    <div class="falling-elements-container hidden"></div> <!-- Падающие элементы на первом слайде -->
+
+    <script src="script.js"></script>
+    <audio id="background-music" src="music.aac" loop></audio>
+</body>
+</html>
